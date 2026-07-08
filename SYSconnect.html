@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Samatava Yuva Sangathan (SYS) | Official National Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Premium Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #F57C00;
+      --primary-hover: #E65100;
+      --primary-light: #FFF3E0;
+      --secondary: #2E7D32;
+      --dark-navy: #0A0F18;
+      --bg-base: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --border-color: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Top National Ticker Bar */
+    .top-ticker {
+      background: #000;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 6px 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--primary);
+    }
+    .top-ticker .live-badge {
+      background: #DC2626;
+      padding: 2px 6px;
+      border-radius: 4px;
+      animation: blink 1.5s infinite;
+    }
+
+    /* Professional Cadre Header Layout */
+    header {
+      background: linear-gradient(135deg, #0F172A, #1E293B);
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header-logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .header-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #FFF, #CBD5E1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    /* Professional Navigation Menu Frame */
+    .nav-frame {
+      background: #FFFFFF;
+      border-bottom: 3px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-menu li a {
+      display: block;
+      padding: 18px 20px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .nav-menu li a:hover, .nav-menu li a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .nav-btn {
+      background: var(--secondary);
+      color: white !important;
+      padding: 10px 18px !important;
+      border-radius: 6px;
+      font-size: 0.85rem !important;
+    }
+
+    /* Main Dashboard Multi-Frame Grid Blueprint */
+    .main-layout {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 30px;
+    }
+
+    /* Left Frame Block */
+    .content-frame {
+      background: var(--bg-surface);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    }
+
+    /* Right Frame Sidebar Block (Like ABVP/NSUI Portal Sidebars) */
+    .sidebar-frame {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .sidebar-widget {
+      background: #FFF;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    }
+
+    .widget-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .news-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 0.88rem;
+    }
+    .news-item:last-child { border: 0; }
+    .news-date { font-weight: 700; color: var(--primary); font-size: 0.75rem; }
+
+    /* Core Titles Styles */
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    /* Completely Unaltered Flat Form Layout CSS Engine */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-color);
+      background-color: #F8FAFC;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: var(--primary);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(245, 124, 0, 0.2);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    button:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    #msg {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    
+    .loading { background: var(--primary-light); color: var(--primary-hover); }
+    .success { background: #E8F5E9; color: var(--secondary); border: 1px solid #A5D6A7; }
+    .error { background: #FFEBEE; color: #C62828; border: 1px solid #EF9A9A; }
+
+    /* Footer Framing Components */
+    footer {
+      background: #0F172A;
+      color: #94A3B8;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 5px solid var(--secondary);
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    @media (max-width: 900px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .nav-container { justify-content: center; padding: 10px; }
+      .nav-menu { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .full-width { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP RUNNING TICKER -->
+  <div class="top-ticker">
+    <div><span class="live-badge">LIVE</span> &nbsp; SYS NATIONAL MEMBERSHIP DRIVE 2026 ACTIVE</div>
+    <div>SAMATVA SADAN, HEADQUARTERS, NAGPUR</div>
+  </div>
+
+  <!-- LEAGUE-STRENGTH OFFICIAL HEADER -->
+  <header>
+    <div class="header-logo-container">
+      <img class="header-logo" src="logo.png" alt="SYS Organization Logo" onerror="this.src='https://scontent.cdninstagram.com/v/t51.82787-19/655873175_18003012971907530_1774113341579979192_n.jpg?_nc_cat=111&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=E_rytjsozCAQ7kNvwG1E1zY&_nc_oc=AdoIYmFKMbHhRzhcm-heO8_V8s_j1SKEXVOek8sZAwCw8WfS79-UEtc1TKlP_dCkIpI&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=xaiTVyNsqFMbwOdyN6qa_Q&_nc_ss=7b6a8&oh=00_AQBb5WE3Lmhw03hefJBPI5hA9MlJKTJ2SYB-6Cf_Jd-wIw&oe=6A5404D9'">
+    </div>
+    <h1>Samatava Yuva Sangathan (SYS)</h1>
+    <p> समानता • जागरूकता • युवाशक्ति</p>
+  </header>
+
+  <!-- PROFESSIONAL NAVIGATION FRAME MENU BAR -->
+  <nav class="nav-frame">
+    <div class="nav-container">
+      <ul class="nav-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About Central Command</a></li>
+        <li><a href="#">Our Ideology</a></li>
+        <li><a href="#">Leadership Council</a></li>
+        <li><a href="#">Press Releases</a></li>
+        <li><a href="#">Media Gallery</a></li>
+        <li><a href="#">Contact Node</a></li>
+      </ul>
+      <div style="padding: 10px 0;">
+        <a href="#f" class="nav-btn" style="text-decoration:none; font-weight:700;">REGISTER NOW</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TWO-COLUMN DASHBOARD GRID ASSEMBLY FRAME -->
+  <main class="main-layout">
+    
+    <!-- LEFT PRIMARY FORM LAYOUT FRAME CONTAINER -->
+    <div class="content-frame">
+      <h2><i class="fa-solid fa-circle-info" style="color: var(--primary);"></i> Strategic Overview</h2>
+      <p class="subtitle">SYS is an independent national vanguard movement promoting democratic youth consolidation, structural social awareness, decentralized localized community infrastructure service blueprints, and parity values across modern student echelons.</p>
+      
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 25px;">
+
+      <h2><i class="fa-solid fa-id-card" style="color: var(--secondary);"></i> Official Enrollment Form</h2>
+      <p class="subtitle">Provide completely certified local identities below to directly update your record status into the central mainframe repository instantly.</p>
+      
+      <!-- ORIGINAL FLAT FORM ENGINE - ABSOLUTELY UNTOUCHED -->
+      <form id="f">
+        <div class="form-grid">
+          
+          <div class="full-width">
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" placeholder="Full Name" required>
+          </div>
+
+          <div>
+            <label for="mobile">Mobile Number *</label>
+            <input id="mobile" placeholder="Mobile" required>
+          </div>
+
+          <div>
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Email">
+          </div>
+
+          <div>
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="dob">Date of Birth</label>
+            <input id="dob" type="date">
+          </div>
+
+          <div>
+            <label for="city">City</label>
+            <input id="city" placeholder="City">
+          </div>
+
+          <div>
+            <label for="education">Education</label>
+            <input id="education" placeholder="Education">
+          </div>
+
+          <div class="full-width">
+            <label for="occupation">Occupation</label>
+            <input id="occupation" placeholder="Occupation">
+          </div>
+
+          <div class="full-width" style="margin-top: 10px;">
+            <button type="submit"><i class="fa-solid fa-database"></i> Submit Registration</button>
+          </div>
+
+        </div>
+      </form>
+
+      <!-- STATUS MESSAGING BAR -->
+      <div id="msg"></div>
+    </div>
+
+    <!-- RIGHT ORGANIZATIONAL SIDEBAR FRAME COMPONENT -->
+    <div class="sidebar-frame">
+      
+      <!-- SIDEBAR WIDGET 1: ANNOUNCEMENTS -->
+      <div class="sidebar-widget">
+        <div class="widget-title"><i class="fa-solid fa-bullhorn" style="color: var(--primary);"></i> Central Circulars</div>
+        <div class="news-item">
+          <div class="news-date">JULY 2026</div>
+          <p style="font-weight:600;">SYS National Convention Delegate Registry opened for state unit taskforces.</p>
+        </div>
+        <div class="news-item">
+          <div class="news-date">JUNE 2026</div>
+          <p style="font-weight:600;">Anti-Discrimination campus safety guidelines dispatched to regional zones.</p>
+        </div>
+      </div>
+
+      <!-- SIDEBAR WIDGET 2: CORE PILLARS -->
+      <div class="sidebar-widget">
+        <div class="widget-title"><i class="fa-solid fa-shield-halved" style="color: var(--secondary);"></i> Core Core Values</div>
+        <ul style="list-style:none; font-size:0.9rem; font-weight:600; display:flex; flex-direction:column; gap:10px;">
+          <li><i class="fa-solid fa-check text-success" style="color:var(--secondary);"></i> Sovereign Student Advocacy</li>
+          <li><i class="fa-solid fa-check text-success" style="color:var(--secondary);"></i> Egalitarian Civic Engagement</li>
+          <li><i class="fa-solid fa-check text-success" style="color:var(--secondary);"></i> Grassroots Literacy Crusades</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- NATIONAL PORTAL FOOTER FRAME -->
+  <footer>
+    <p style="font-weight:700; color:#FFF; margin-bottom:10px;">SAMATAVA YUVA SANGATHAN CENTRAL MAIN CONTROL COMMAND</p>
+    <p>© 2026 SYS Central Committee Initiative. All Rights Reserved Content.</p>
+  </footer>
+
+  <!-- EXACT ORIGINAL BACKEND HANDLER LOGIC - 100% UNTOUCHED AND PROTECTED -->
+  <script>
+    const URL = 'https://script.google.com/macros/s/AKfycbyXPNCB_Xbx_E7kUyT35zsErgnTPe4cMG-zThlWYtxcwED1DladDyr0ehxhrDmt81y6/exec';
+    
+    f.onsubmit = async e => {
+      e.preventDefault();
+      
+      const data = {
+        fullName: fullName.value,
+        mobile: mobile.value,
+        email: email.value,
+        gender: gender.value,
+        dob: dob.value,
+        city: city.value,
+        education: education.value,
+        occupation: occupation.value
+      };
+      
+      const msgBox = document.getElementById('msg');
+      msgBox.className = 'loading';
+      msgBox.textContent = 'Submitting...';
+      
+      try {
+        const r = await fetch(URL, {
+          method: 'POST',
+          body: JSON.stringify(data)
+        });
+        const j = await r.json();
+        
+        if (j.success) {
+          msgBox.className = 'success, you will receive your MEMBERSHIP CERTIFICATE shortly in your E-MAIL address';
+          msgBox.innerHTML = 'Success! Member ID: ' + j.memberId;
+          f.reset();
+        } else {
+          msgBox.className = 'error';
+          msgBox.innerHTML = 'Error: ' + (j.error || 'Failed');
+        }
+      } catch (err) {
+        msgBox.className = 'error';
+        msgBox.textContent = err;
+      }
+    };
+  </script>
+</body>
+</html>
